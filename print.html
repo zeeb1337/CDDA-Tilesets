@@ -206,7 +206,7 @@ $ python3 &lt;path-to-compose-py-script&gt;/compose.py gfx/UltimateCataclysm
 (get vips-dev-w64-web-#.#.#.zip NOT vips-dev-w64-all-#.#.#.zip).</p>
 <p>Extract the files somewhere.</p>
 <p><strong>Cataclysm-DDA game</strong></p>
-<p>The easiest way to get the game is to use the <a href="https://github.com/remyroy/CDDA-Game-Launcher">CDDA Game Launcher</a>.
+<p>The easiest way to get the game is to use the <a href="https://github.com/Fris0uman/CDDA-Game-Launcher/releases">CDDA Game Launcher</a>.
 With the launcher, install the latest <strong>experimental</strong> release.</p>
 <h2><a class="header" href="#setting-up-paths" id="setting-up-paths">Setting up paths</a></h2>
 <p>For composing tilesets, some path must be known to the respective scripts.
@@ -214,21 +214,21 @@ This section describes the most easy drag &amp; drop approach.</p>
 <p>In <code>CDDA-Tilesets</code>, go into folder <code>tools</code>.</p>
 <ol>
 <li>
-<p>Copy <code>set_game_path.cmd</code> into the game's folder, and double-click it.
+<p>Copy <code>set_game_path.cmd</code> into the game's folder, and double-click it.<br />
 OR: Drag &amp; drop the game folder onto <code>set_game_path.cmd</code>.</p>
 <blockquote>
 <p>Note: This sets the environmental variable <code>CDDA_PATH</code>.</p>
 </blockquote>
 </li>
 <li>
-<p>Copy <code>set_vips_path.cmd</code> into the vips folder (e.g. <code>C:\vips-dev-x.xx</code>), and double-click it.
+<p>Copy <code>set_vips_path.cmd</code> into the vips folder (e.g. <code>C:\vips-dev-x.xx</code>), and double-click it.<br />
 OR: Drag &amp; drop the vips folder onto <code>set_vips_path.cmd</code>.</p>
 <blockquote>
 <p>Note: This sets the environmental variable <code>LIBVIPS_PATH</code>.</p>
 </blockquote>
 </li>
 <li>
-<p>Optional: To set a tileset to compose permanently, double-click <code>set_tileset.cmd</code> and select the desired tileset.
+<p>Optional: To set a tileset to compose permanently, double-click <code>set_tileset.cmd</code> and select the desired tileset.<br />
 If not set permanently, the update script will allow for interactive selection of a tileset.</p>
 <blockquote>
 <p>Note: This sets the environmental variable <code>CDDA_TILESET</code>.</p>
@@ -452,6 +452,14 @@ when you want to adjust all sprites as one image:</p>
 <pre><code class="language-sh">cd mud_tiles
 $ tools/unslice_multitile.py mud
 </code></pre>
+<h3><a class="header" href="#slicing-variants" id="slicing-variants">Slicing variants</a></h3>
+<p>Randomly selected sprite variants can be used based on weights.
+For easier creation of these variants, multitile-like images can be sliced into numbered variant sprites using <code>slice_variants.py</code>.</p>
+<p>Usage is the same as with <code>slice_multitile.py</code>. E.g.:</p>
+<pre><code class="language-sh">$ tools/slice_variants.py t_floor_multitile.png 32 32
+</code></pre>
+<p>The script can handle any multitile size, not only 4x4.
+For iso multitiles, use switch <code>--iso</code>.</p>
 
                     </main>
 
